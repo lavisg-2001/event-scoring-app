@@ -1,0 +1,35 @@
+<div class="container">
+  <h1>Event Scoring</h1>
+  <form (ngSubmit)="onSubmit()">
+    <label for="eventJson">Event Payload (JSON):</label>
+    <textarea
+      id="eventJson"
+      [(ngModel)]="eventJson"
+      name="eventJson"
+      rows="10"
+      cols="50"
+      placeholder="Enter event JSON, e.g., {eventId: 'EVT-101', eventType: 'ORDER', payload: {amount: 250000, customerType: 'NEW'}}"
+    ></textarea>
+    <br>
+    <button type="submit" [disabled]="isLoading">Score Event</button>
+  </form>
+
+  <div *ngIf="isLoading" class="loading">Scoring... Please wait.</div>
+
+  <div *ngIf="errorMessage" class="error">
+    <h2>Error:</h2>
+    <p>{{ errorMessage }}</p>
+  </div>
+
+  <div *ngIf="response && !errorMessage" class="result">
+    <h2>Scoring Result</h2>
+    <p><strong>Event ID:</strong> {{ response.eventId }}</p>
+    <p><strong>Score:</strong> {{ response.score }}</p>
+    <p><strong>Confidence:</strong> {{ response.confidence }}</p>
+    <p><strong>Flags:</strong> {{ response.flags.join(', ') || 'None' }}</p>
+    <p><strong>Reasons:</strong></p>
+    <ul>
+      <li *ngFor="let reason of response.reasons">{{ reason }}</li>
+    </ul>
+  </div>
+</div>
