@@ -5,13 +5,13 @@ A full-stack application for event scoring with rules-based evaluation.
 ## Setup
 
 ### Backend (Spring Boot)
-- Navigate to `backend/`.
+- Navigate to `score/`.
 - Run `mvn clean install`.
 - Configure MySQL in `src/main/resources/application.properties`.
 - Run `mvn spring-boot:run` (starts on port 8081).
 
 ### Frontend (Angular)
-- Navigate to `frontend/`.
+- Navigate to `score-ui/`.
 - Run `npm install`.
 - Run `ng serve` (starts on port 4200).
 
