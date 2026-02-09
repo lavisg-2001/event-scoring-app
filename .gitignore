@@ -1,0 +1,23 @@
+# Frontend (Angular)
+node_modules/
+dist/
+.angular/
+*.log
+
+# Backend (Spring Boot)
+target/
+*.jar
+*.war
+.mvn/
+.idea/
+*.iml
+
+# OS and Editor
+.DS_Store
+.vscode/
+.env
+*.tmp
+
+# Database and Logs
+*.db
+logs/
